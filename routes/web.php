@@ -55,3 +55,12 @@ Route::get('medicines/{medicine_id}', function ($id) {
 Route::get('equipments/{equip_id}', function ($id) {
     return view('detailEquipments',["id"=>$id]);
 });
+
+
+// Route::get('formnewproduct', 'ProductController@create') ;
+// Route::get('formupdateproduct', 'ProductController@update') ;
+
+// Route::resource('product','ProductResController');
+
+Route::resource('obat','MedicineController');
+Route::resource('kategori_obat','CategoryController');
