@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>List Medicine</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,15 +11,19 @@
 <body>
 
 <div class="container">
-  <h2>List Medicines</h2>
-  <p>The .table-hover class enables a hover state on table rows:</p>            
+  <h2>List Medicines</h2>            
   <table class="table table-hover">
     <thead>
       <tr>
         <th>Name</th>
         <th>Form</th>
         <th>Restriction Formula</th>
-        {{-- <th>Price</th> --}}
+        <th>Price</th>
+        <th>Description</th>
+        <th>Faskes TK 1</th>
+        <th>Faskes TK 2</th>
+        <th>Faskes TK 3</th>
+        <th>Category ID</th>
       </tr>
     </thead>
     <tbody>
@@ -28,7 +32,12 @@
         <td>{{ $medicine->generic_name }}</td>
         <td>{{ $medicine->form }}</td>
         <td>{{ $medicine->restriction_formula }}</td>
-        {{-- <td>{{ $medicine->price }}</td> --}}
+        <td>{{ $medicine->price }}</td>
+        <td>{{ $medicine->description }}</td>
+        <td>{{ $medicine->faskes_TK1 }}</td>
+        <td>{{ $medicine->faskes_TK2 }}</td>
+        <td>{{ $medicine->faskes_TK3 }}</td>
+        <td>{{ $medicine->category_id }}</td>
       </tr>
         @endforeach
     </tbody>

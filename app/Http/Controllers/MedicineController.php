@@ -22,7 +22,8 @@ class MedicineController extends Controller
        //eloquent
        $listdata = Medicine::all();
 
-       return view('medicine.index',compact('listdata'));
+    //    return view('medicine.index',compact('listdata'));
+       return view('medicine.post',compact('listdata'));
     }
 
     /**

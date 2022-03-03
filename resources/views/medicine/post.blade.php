@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CATALOG</title>
+    <title>Medicine</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<style>.card{display: inline-block;  margin: 100px}</style>
+<style>.card{display: inline-block;  margin: 50px}</style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -29,32 +29,23 @@
           </div>
         </div>
       </nav>
-
-      <h1 style="text-align: center; margin-top:40px;">{{ $title }}</h1>
-      <a href="/catalog/medicines">
-        <div class="card" style="width: 18rem; ">
-          <img src="{{ asset('img/medicines.png') }}" class="card-img-top" alt="..." style="width: 100%; height: 100px;" >
-          <div class="card-body">
-            <h5 class="card-title" style="text-align: center">Medicines</h5>
-          </div>
+      <div class="row">
+        @foreach ($listdata as $list)
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset('img/'.$list->url) }}" class="card-img-top" alt="..." style="width: 100%; height: 100px;" >
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center">{{ $list->generic_name }}</h5>
+                  <h5 class="card-title" style="text-align: center">{{ $list->price }}</h5> 
+                </div>
+              </div>    
         </div>
-      </a>
-      <a href="/catalog/med_equip">
-        <div class="card" style="width: 18rem;">
-          <img src="{{ asset('img/medical.jpg') }}" class="card-img-top" alt="..."  style="width: 100%; height: 100px; " >
-          <div class="card-body">
-            <h5 class="card-title" style="text-align: center">Medical Equipment</h5>
-          </div>
-        </div>
-      </a>
-      <a href="/obat">
-        <div class="card" style="width: 18rem; ">
-          <img src="{{ asset('img/medicines.png') }}" class="card-img-top" alt="..." style="width: 100%; height: 100px;" >
-          <div class="card-body">
-            <h5 class="card-title" style="text-align: center">Medicines In Database</h5>
-          </div>
-        </div>
-      </a>
+        @endforeach
+      </div>
+      <div style="margin: 40px;">
+        <a href="/catalog"><button><---Back</button></a>
+      </div>
+     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

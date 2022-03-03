@@ -17,10 +17,12 @@ class AlterMedicinesTable extends Migration
             $table ->string('generic_name');
              $table ->string('form');
             $table->string('restriction_formula');
+            $table -> double('price',12,2);
             $table ->string('description');
             $table->boolean('faskes_TK1');
             $table->boolean('faskes_TK2');
             $table->boolean('faskes_TK3');
+            $table->string('url');
             });
     }
 
