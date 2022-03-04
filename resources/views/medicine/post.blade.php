@@ -42,30 +42,30 @@ body{background-color: pink;}
         <?php
         $category_id = (isset($_GET['kategori']))? $_GET['kategori']:'';
         ?>
-        @foreach ($innershow as $list)
+        @foreach ($listdata as $list)
         @if ($list->category_id == $category_id)
         <div class="col-md-4">
           <div class="card" style="width: 18rem;">
-              <img src="{{ asset('img/'.$list->url) }}" class="card-img-top" alt="..." style="width: 100%; height: 100px;" >
+              {{-- <img src="{{ asset('img/'.$list->url) }}" class="card-img-top" alt="..." style="width: 100%; height: 100px;" > --}}
               <div class="card-body">
                 <h5 class="card-title" style="text-align: center">{{ $list->generic_name }}</h5>
                 <h5 class="card-title" style="text-align: center">{{ $list->form }}</h5>
                 <h5 class="card-title" style="text-align: center">{{ $list->restriction_formula }}</h5>
                 <h5 class="card-title" style="text-align: center">{{ $list->price }}</h5>
-                <h5 class="card-title" style="text-align: center">Category: {{ $list->name }}</h5>  
+                {{-- <h5 class="card-title" style="text-align: center">Category: {{ $list->name }}</h5>   --}}
               </div>
             </div>    
       </div>  
       @elseif($category_id=='')
       <div class="col-md-4">
         <div class="card" style="width: 18rem;">
-            <img src="{{ asset('img/'.$list->url) }}" class="card-img-top" alt="..." style="width: 100%; height: 100px;" >
+            {{-- <img src="{{ asset('img/'.$list->url) }}" class="card-img-top" alt="..." style="width: 100%; height: 100px;" > --}}
             <div class="card-body">
               <h5 class="card-title" style="text-align: center">{{ $list->generic_name }}</h5>
               <h5 class="card-title" style="text-align: center">{{ $list->form }}</h5>
               <h5 class="card-title" style="text-align: center">{{ $list->restriction_formula }}</h5>
               <h5 class="card-title" style="text-align: center">{{ $list->price }}</h5> 
-              <h5 class="card-title" style="text-align: center">Category: {{ $list->name }}</h5>  
+              {{-- <h5 class="card-title" style="text-align: center">Category: {{ $list->name }}</h5>   --}}
             </div>
           </div>    
     </div>  
