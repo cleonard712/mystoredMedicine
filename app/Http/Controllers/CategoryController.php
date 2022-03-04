@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,15 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+                //query raw
+       $listdata =  DB::select(DB::raw('select *from categories'));
+       //query builder
+       $listdata =  DB::table('categories')->get();
+       //eloquent
+       $listdata = Category::all();
+
+    //    return view('medicine.index',compact('listdata'));
+       return view('kategori.index',compact('listdata'));
     }
 
     /**

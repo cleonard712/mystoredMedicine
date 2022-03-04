@@ -16,14 +16,25 @@ class MedicineController extends Controller
     public function index()
     {
         //query raw
-       $listdata =  DB::select(DB::raw('select *from medicines'));
+       $listdata =  DB::select(DB::raw('select * from medicines'));
        //query builder
        $listdata =  DB::table('medicines')->get();
        //eloquent
        $listdata = Medicine::all();
-
+        // yang dapat nampilin kategori nama
+       $innershow = DB::select(DB::raw('select m.generic_name,m.form,m.restriction_formula, m.price, c.name, m.category_id,m.url from medicines as m inner join categories as c on m.category_id = c.id'));
     //    return view('medicine.index',compact('listdata'));
-       return view('medicine.post',compact('listdata'));
+       return view('medicine.post',compact('innershow'));
+
+       //query inner join
+       $inner = DB::select(DB::raw('select m.generic_name,m.form,m.restriction_formula, c.name from medicines as m inner join categories as c on m.category_id = c.id'));
+
+       //Tampilan jumlah kategori yang memiliki data medicines
+       $jumlah = DB::select(DB::raw('select COUNT(DISTINCT category_id) from medicines'));
+      // Tampilkan nama kategori yang tidak memiliki data medicines satupun
+        $nomedicine = DB::select(DB::raw('select name from categories WHERE id NOT IN (SELECT DISTINCT category_id from medicines)'));
+        //Tampilkan rata-rata harga setiap kategori obat. Bila tidak ada obat maka berikan 0
+        $jumlah = DB::select(DB::raw(''));
     }
 
     /**
