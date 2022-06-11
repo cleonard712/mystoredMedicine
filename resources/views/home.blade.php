@@ -25,6 +25,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/catalog">CATALOG</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Front End</a>
+              </li>
             </ul>
           </div>
         </div>
